@@ -1,19 +1,18 @@
-# Cask for a personal tap (github.com/LLC-AFTeam-Tech/homebrew-tap, Casks/denny-for-agents.rb).
-# After each release: set version, and sha256 from `shasum -a 256 DennyForAgents.zip`.
 cask "denny-for-agents" do
-  version "0.3.2"
-  sha256 "2513e6953a7e05e2dba50045d41c0b4bee099e4fdb2d12154dc8d232ffd5dc7b"
+  version "0.4.0"
+  sha256 "c9de5bfed4aeaf55478b4a8e540959f76b3bdb669c1add995561be3919580e37"
 
-  url "https://github.com/LLC-AFTeam-Tech/denny-for-agents/releases/download/v#{version}/DennyForAgents.zip"
-  name "Denny for Agents"
-  desc "Notch companion that watches Claude Code and Codex"
-  homepage "https://github.com/LLC-AFTeam-Tech/denny-for-agents"
+  url "https://github.com/LLC-AFTeam-Tech/denny-for-agents/releases/download/v#{version}/denny-agents-#{version}-mac-arm64.dmg"
+  name "Denny Agents"
+  desc "Notch companion for Claude Code and Codex"
+  homepage "https://afteam.tech/denny/agents/"
 
+  depends_on arch: :arm64
   depends_on macos: ">= :ventura"
 
-  app "Denny for Agents.app"
+  app "Denny Agents.app"
 
-  uninstall quit: "tech.afteam.denny-for-agents"
+  uninstall quit: "com.denny.agents"
 
   zap trash: [
     "~/.denny-for-agents",
@@ -21,8 +20,8 @@ cask "denny-for-agents" do
   ]
 
   caveats <<~EOS
-    Denny for Agents is not notarized yet. If macOS refuses to open it, run:
-      xattr -dr com.apple.quarantine "/Applications/Denny for Agents.app"
-    Hooks it added can be removed from its menu bar icon before uninstalling.
+    Denny Agents requires an Apple Silicon Mac and macOS 13 or later.
+    This release is not notarized by Apple. See the installation instructions:
+      https://github.com/LLC-AFTeam-Tech/denny-for-agents/blob/main/README.md
   EOS
 end
