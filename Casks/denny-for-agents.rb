@@ -1,6 +1,6 @@
 cask "denny-for-agents" do
-  version "0.4.0"
-  sha256 "c9de5bfed4aeaf55478b4a8e540959f76b3bdb669c1add995561be3919580e37"
+  version "0.5.0"
+  sha256 "43d27876e3e5c190e7039c5faab5d87528c96cfd402f416a1067adb694769080"
 
   url "https://github.com/LLC-AFTeam-Tech/denny-for-agents/releases/download/v#{version}/denny-agents-#{version}-mac-arm64.dmg"
   name "Denny Agents"
